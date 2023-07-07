@@ -17,7 +17,7 @@ const handler = async (req: Request): Promise<Response> => {
       model,
       apiKey,
     );
-
+    console.warn(new Response(stream));
     return new Response(stream);
   } catch (error) {
     console.error(error);
