@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.bi-circle-fill[data-status="green"] {
+    color: green;
+  }
+  
+  .bi-circle-fill[data-status="red"] {
+    color: red;
+  }
+  .bi-circle-fill[data-status="amber"] {
+    color: orange;
+  }

@@ -6,6 +6,8 @@ import { TextBlock } from '@/components/TextBlock';
 import { OpenAIModel, TranslateBody } from '@/types/types';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
+import { faCheckCircle, faExclamationCircle, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
+import React from 'react';
 
 export default function Home() {
   const [inputLanguage, setInputLanguage] = useState<string>('COBOL');
@@ -137,12 +139,15 @@ export default function Home() {
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"></link>
       </Head>
-      <div className="flex h-full min-h-screen flex-col items-center bg-[#0E1117] px-4 pb-20 text-neutral-200 sm:px-10">
-        <div className="mt-10 flex flex-col items-center justify-center sm:mt-20">
+      <div className="flex flex-row">
+      
+      <div className="flex row-9 h-full min-h-screen flex-col items-start bg-[#0E1117] px-4 pb-20 text-neutral-200 sm:px-10">
+        <div className="mt-10 flex flex-col items-start justify-start sm:mt-20">
           <div className="text-4xl font-bold">COBOL to Python Translator</div>
         </div>
-
+        
         <div className="mt-6 text-center text-sm">
           <APIKeyInput apiKey={apiKey} onChange={handleApiKeyChange} />
         </div>
@@ -158,7 +163,11 @@ export default function Home() {
             {loading ? 'Translating...' : 'Translate'}
           </button>
         </div>
-
+        <div>
+      
+        
+      
+    </div>
         <div className="mt-2 text-center text-xs">
           {loading
             ? 'Translating...'
@@ -219,8 +228,23 @@ export default function Home() {
               <CodeBlock code={outputCode} />
             {/* )} */}
           </div>
+          
         </div>
       </div>
+      <div className="bg-[#0E1117] w-full text-neutral-200 flex flex-col row-3">
+          <h4>Conf_Vector</h4>
+            <i className="bi bi-circle-fill justify-end" data-status="red"></i>
+            <h4>Conf_Embed</h4>
+            <i className="bi bi-circle-fill justify-end" data-status="amber"></i>
+            <h4>Syntax</h4>
+            <i className="bi bi-circle-fill justify-end" data-status="green"></i>
+            <h4>Produce Same Result</h4>
+            <i className="bi bi-circle-fill justify-end" data-status="red"></i>
+            <h4>Functionality</h4>
+            <i className="bi bi-circle-fill justify-end" data-status="green"></i>
+        </div>
+      </div>
+     
     </>
   );
 }
